@@ -3,11 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Book Finder</title>
+    <link rel="icon" href="/img/favicon.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/script.js"></script>
 </head>
 <body>
-
+    <dialog id="dialog">
+        <div class="dialog-content">
+            <button class="dialog-close-btn">
+                <img src="/img/close.svg" alt="Close" class="close-icon">
+            </button>
+            <div class="dialog-loading">
+                <div class="skeleton dialog-loading-title"></div>
+                <div class="skeleton dialog-loading-subTitle"></div>
+                <div class="dialog-loading-body">
+                    <div class="skeleton dialog-loading-img"></div>
+                    <div class="dialog-loading-info">
+                        <div class="dialog-loading-stats">
+                            <div class="skeleton stat"></div>
+                            <div class="skeleton stat"></div>
+                            <div class="skeleton stat"></div>
+                        </div>
+                        <div class="dialog-loading-tags">
+                            <div class="skeleton tag"></div>
+                            <div class="skeleton tag"></div>
+                            <div class="skeleton tag"></div>
+                            <div class="skeleton tag"></div>
+                        </div>
+                        <div class="skeleton description-title"></div>
+                        <div class="dialog-loading-description">
+                            <div class="skeleton line"></div>
+                            <div class="skeleton line"></div>
+                            <div class="skeleton line"></div>
+                            <div class="skeleton line"></div>
+                            <div class="skeleton line short"></div>
+                        </div>
+                        <div class="skeleton button"></div>
+                        <div class="skeleton button second"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-book hidden">
+                <div class="dialog-book-header">
+                    <h2></h2>
+                    <p></p>
+                </div>
+                <div class="dialog-book-content">
+                    <div class="cover">
+                        <img src="" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="row">
+                            <img class="icon" src="/img/calendar.svg" alt="Calendar Icon">
+                            <div>
+                                <span class="label">Published</span>
+                                <span class="value"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <img class="icon" src="/img/accounting.svg" alt="Edition Count Icon">
+                            <div>
+                                <span class="label">Edition Count</span>
+                                <span class="value"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <img class="icon" src="/img/server-lock.svg" alt="Server Lock Icon">
+                            <div>
+                                <span class="label">Ebook Access</span>
+                                <span class="value"></span>
+                            </div>
+                        </div>
+                        <div class="tags"></div>
+                        <div>
+                            <p class="dialog-book-label">Description</p>
+                            <p class="dialog-book-description"></p>
+                        </div>
+                        <div class="dialog-book-buttons">
+                            <a href="" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                <img src="/img/black-arrow-up-right.svg" alt="Black Arrow Up Right">
+                                Preview Book
+                            </a>
+                            <a href="" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                                <img src="/img/white-arrow-up-right.svg" alt="White Arrow Up Right">
+                                More Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-error hidden"></div>
+        </div>
+    </dialog>
+    <header>
+        <div class="wrapper-logo-title">
+            <div class="logo-box">
+                <img src="/img/book-logo.svg" alt="Book Icon" class="book-logo-icon">
+            </div>
+            <h1 class="title">Book Finder</h1>
+        </div>
+        <form class="search-form">
+            <div class="search-box">
+                <img src="/img/search.svg" alt="Search Icon" class="search-icon">
+                <input type="text" name='search' placeholder="Search for books by title, author, or keyword..." class="search-input">
+                <button class="search-btn" type="submit" disabled>
+                    <span class="spinner hidden"></span>
+                    <span class="text">Search</span>
+                </button>
+            </div>
+        </form>
+    </header>
+    <main>
+        <div class="empty-state">
+            <div class="empty-icon-box">
+                <img src="/img/book-main.svg" alt="Book Icon" class="book-main-icon">
+            </div>
+            <h2 class="empty-title">Discover Your Next Read</h2>
+            <p class="empty-text">Search for books by title, author, or keyword to explore millions of books from Google Books.</p>
+        </div>
+        <div class="loading-state hidden">
+            <template id="loading-template">
+                <div class="card">
+                    <div class="skeleton skeleton-poster"></div>
+                    <div class="card-content">
+                        <div class="skeleton skeleton-title"></div>
+                        <div class="skeleton skeleton-subtitle"></div>
+                        <div class="skeleton skeleton-meta"></div>
+                        <div class="skeleton skeleton-button"></div>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <div class="error-state hidden">
+            <div class="error-icon-box">
+                <img src="/img/error.svg" alt="Error Icon" class="error-icon">
+            </div>
+            <h2 class="error-title">Something Went Wrong</h2>
+            <p class="error-text">Failed to fetch books. Please try again later.</p>
+        </div>
+        <div class="no-results-state hidden">
+            <div class="no-results-icon-box">
+                <img src="/img/search.svg" alt="Search Icon" class="search-icon-main">
+            </div>
+            <h2 class="no-results-title">No Books Found</h2>
+            <p class="no-results-text">No results found. Try a different search query.</p>
+        </div>
+        <div class="books-grid hidden"></div>
+    </main>
 </body>
 </html>
