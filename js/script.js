@@ -82,7 +82,7 @@ function createBookCard(book) {
     const img = document.createElement('img')
     const coverSrc = book.cover_i
         ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
-        : './img/books.png'
+        : '../img/books.png'
     img.src = coverSrc
     img.alt = book.title ?? 'Book cover'
     img.loading = 'lazy'
@@ -125,7 +125,7 @@ function displayBooks(books) {
             previewId: book.ia?.[0] ?? '',
             cover: book.cover_i
                 ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
-                : './img/books.png',
+                : '../img/books.png',
         })
         fragment.appendChild(createBookCard(book))
     })
