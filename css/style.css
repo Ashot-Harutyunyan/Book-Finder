@@ -77,7 +77,8 @@ body .hidden {
     padding: 24px;
 }
 .dialog-loading-title {
-    width: 320px;
+    max-width: 320px;
+    width: 67%;
     height: 40px;
 }
 .dialog-loading-subTitle {
@@ -86,6 +87,7 @@ body .hidden {
 }
 .dialog-loading-body {
     display: flex;
+    flex-wrap: wrap;
     gap: 24px;
     align-items: flex-start;
 }
@@ -218,6 +220,7 @@ body .hidden {
 .dialog-book-description {
     font-size: 14px;
     line-height: 1.625;
+    word-break: break-all;
 }
 .dialog-book-buttons {
     display: flex;
