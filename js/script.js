@@ -250,6 +250,7 @@ async function openDialog(e) {
 
     } catch (err) {
         console.error(err)
+        
         hideAllDialogStates()
         dialogError.classList.remove('hidden')
     } finally {
